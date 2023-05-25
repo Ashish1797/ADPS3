@@ -30,7 +30,7 @@ jobs:
           
       - name: Push to S3
         run: |
-          aws s3 cp ./Users/ashishmahajan/Eficens/ADPS3 s3://was12 --recursive
+          aws s3 cp ./Users/ashishmahajan/Test/w.txt s3://was12 --recursive
 
       - name: Get S3 Object URL
         id: s3-url
