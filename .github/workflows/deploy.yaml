@@ -22,7 +22,7 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          aws s3api create-bucket
+          aws s3api create-bucket --bucket was12
 
       - name: Deploy to S3
         run: |
