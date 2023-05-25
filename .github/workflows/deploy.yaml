@@ -1,5 +1,3 @@
-name: Deploy to AWS S3
-
 on:
   push:
     branches:
@@ -27,5 +25,15 @@ jobs:
       - name: Deploy to S3
         run: |
           aws s3 sync . s3://was12
-          # Add your deployment commands here
-          
+
+      - name: Get S3 Object URL
+        id: s3-url
+        run: |
+          echo "::set-output name=url::$(aws s3api get-object-url --bucket was12 --key index.html)"
+
+      - name: Deploy to Web URL
+        run: |
+          # Use the S3 object URL to deploy the web page to a specific URL
+          # Replace the `URL_TO_DEPLOY` with your specific deployment URL
+          echo "Deploying to URL: ${{ steps.s3-url.outputs.url }}"
+          # Additional deployment commands here using the S3 object URL and deployment URL
