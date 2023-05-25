@@ -22,7 +22,7 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          aws s3api create-bucket --bucket my-bucket-name
+          aws s3api create-bucket --bucket ${{ env.RANDOM_BUCKET_NAME }}
 
       - name: Deploy to S3
         run: |
