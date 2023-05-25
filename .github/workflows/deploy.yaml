@@ -24,9 +24,9 @@ jobs:
         run: |
           aws s3api create-bucket --bucket was12
 
-      - name: Deploy to S3
-        run: |
-          aws s3 sync . s3://was12 --delete
+#      - name: Deploy to S3
+#        run: |
+#          aws s3 sync . s3://was12 --delete
           
       - name: Push to S3
         run: |
