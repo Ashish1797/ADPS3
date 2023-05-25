@@ -32,16 +32,3 @@ jobs:
         id: s3-url
         run: |
           echo "::set-output name=url::$(aws s3api get-object-url --bucket was12 --key index.html)"
-
-      #- name: Deploy to Web URL
-       # run: |
-          # Use the S3 object URL to deploy the web page to a specific URL
-          # Replace the `URL_TO_DEPLOY` with your specific deployment URL
-        #  echo "Deploying to URL: ${{ steps.s3-url.outputs.url }}"
-          # Additional deployment commands here using the S3 object URL and deployment URL
-
-      - name: Deploy web page
-        uses: JamesIves/github-pages-deploy-action@4.1.2
-        with:
-          branch: main
-          folder: .
